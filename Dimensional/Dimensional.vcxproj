@@ -129,10 +129,10 @@
   <ItemGroup>
     <ClCompile Include="Dimensional.c" />
     <ClCompile Include="game.c" />
+    <ClCompile Include="structure_data.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="structure_data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

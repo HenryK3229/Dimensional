@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
-#include "game.h"
-#include "resource.h"
+#include "structure_data.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch (msg) {
