@@ -9,11 +9,11 @@ typedef struct GameState game_state_t;
 
 
 typedef struct GameState {
-	producer_t* producers;
+	producer_group_t* producer_groups;
 	effect_t* effects;
 	resource_t* resources;	
 	uint16_t effect_count;
-	uint16_t producer_count;
+	uint16_t producer_group_count;
 	uint16_t resource_count;
 }game_state_t;
 

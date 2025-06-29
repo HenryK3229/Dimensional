@@ -5,6 +5,7 @@
 typedef struct Resource resource_t;
 typedef struct Producer producer_t;
 typedef struct Effect effect_t;
+typedef struct ProducerGroup producer_group_t;
 
 
 typedef struct Resource {
@@ -23,12 +24,17 @@ typedef struct Resource {
 
 typedef struct Producer {
 	char name[32];
-	char type[32];
-
+	producer_group_t* group;
 	effect_t* produced_effect;
 	effect_t* affected_by;
 
 } producer_t;
+
+typedef struct ProducerGroup {
+	char name[32];
+	producer_t* producers;
+	uint8_t producer_count;
+} producer_group_t;
 
 typedef struct Effect {	
 	char name[32];
