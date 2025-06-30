@@ -21,9 +21,6 @@
     <ClCompile Include="game.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="structure_data.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gui.c">
       <Filter>Source Files</Filter>
     </ClCompile>

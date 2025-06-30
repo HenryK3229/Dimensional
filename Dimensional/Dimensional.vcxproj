@@ -130,7 +130,6 @@
     <ClCompile Include="Dimensional.c" />
     <ClCompile Include="game.c" />
     <ClCompile Include="gui.c" />
-    <ClCompile Include="structure_data.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
