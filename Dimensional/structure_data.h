@@ -3,9 +3,11 @@
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 typedef struct Resource resource_t;
+typedef struct ResourceGroup resource_group_t;
 typedef struct Producer producer_t;
-typedef struct Effect effect_t;
 typedef struct ProducerGroup producer_group_t;
+typedef struct Effect effect_t;
+typedef struct EffectGroup effect_group_t;
 typedef struct GameState game_state_t;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 typedef struct Resource {
@@ -21,11 +23,16 @@ typedef struct Resource {
 	uint8_t amount_exponent1;
 
 }resource_t;
+typedef struct ResourceGroup {
+	char name[32];
+	resource_t* resources;
+	uint8_t resource_count;
+} resource_group_t;
 typedef struct Producer {
 	char name[32];
 	producer_group_t* group;
-	effect_t* produced_effect;
-	effect_t* affected_by;
+	effect_group_t* produced_effect;
+	effect_group_t* affected_by;
 
 } producer_t;
 typedef struct ProducerGroup {
@@ -36,8 +43,8 @@ typedef struct ProducerGroup {
 typedef struct Effect {	
 	char name[32];
 
-	resource_t* resources_affected;
-	producer_t* producers_affected;
+	resource_group_t* resources_affected;
+	producer_group_t* producers_affected;
 
 	uint8_t additive_bonus_mantissa;
 	uint8_t additive_bonus_exponent1;
@@ -47,20 +54,19 @@ typedef struct Effect {
 	
 
 }effect_t;
+typedef struct EffectGroup {
+	char name[32];
+	effect_t* effects;
+	uint8_t effect_count;
+} effect_group_t;
 typedef struct GameState {
 	producer_group_t* producer_groups;
-	effect_t* effects;
-	resource_t* resources;
-	uint16_t effect_count;
+	effect_group_t* effect_groups;
+	resource_group_t* resource_groups;
+	uint16_t effect_group_count;
 	uint16_t producer_group_count;
-	uint16_t resource_count;
+	uint16_t resource_group_count;
 }game_state_t;
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-extern resource_t d1;
-extern effect_t d1_additive;
-extern effect_t d1_multiplier;
-extern producer_t d1_1;
-extern producer_group_t d1_g;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 extern game_state_t game_state;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
