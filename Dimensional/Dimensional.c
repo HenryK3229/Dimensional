@@ -8,6 +8,11 @@
 
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
+
+    AllocConsole();
+    FILE* fp;
+    freopen_s(&fp, "CONOUT$", "w", stdout);
+
     game_init(NULL);
 
     const wchar_t CLASS_NAME[] = L"SimpleWindowClass";
