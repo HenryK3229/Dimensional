@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 #include "structure_data.h"
-#include "gui.h"
 #include "game.h"
+#include "gui.h"
+
 
 
 

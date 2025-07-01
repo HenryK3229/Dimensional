@@ -1,7 +1,13 @@
 #pragma once
+
 #include <stdint.h>
 
+#define MAX_DEPTH 10
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+typedef struct Exponent {
+	float m;
+	float e[MAX_DEPTH];
+} exponent_t;
 typedef struct Resource resource_t;
 typedef struct ResourceGroup resource_group_t;
 typedef struct Effect effect_t;
@@ -11,14 +17,11 @@ typedef struct GameState game_state_t;
 typedef struct Resource {
 	char name[32];
 
-	uint8_t base_gain_mantissa;
-	uint8_t base_gain_exponent1;
+	exponent_t base_gain;
 
-	uint8_t effective_gain_mantissa;
-	uint8_t effective_gain_exponent1;
+	exponent_t effective_gain;
 
-	uint8_t amount_mantissa;
-	uint8_t amount_exponent1;
+	exponent_t amount;
 
 }resource_t;
 typedef struct ResourceGroup {
@@ -32,12 +35,13 @@ typedef struct Effect {
 	resource_group_t* resources_affected;
 	effect_group_t* effects_affected;
 
-	uint8_t additive_bonus_mantissa;
-	uint8_t additive_bonus_exponent1;
+	exponent_t base_additive_bonus;
 
-	uint8_t mult_bonus_mantissa;
-	uint8_t mult_bonus_exponent1;
-	
+	exponent_t effective_additive_bonus;
+
+	exponent_t base_mult_bonus;
+
+	exponent_t effective_mult_bonus;
 
 }effect_t;
 typedef struct EffectGroup {
@@ -50,10 +54,10 @@ typedef struct GameState {
 	effect_group_t* sub_effect_groups;
 	resource_group_t* resource_groups;
 	resource_group_t* sub_resource_groups;
-	uint16_t effect_group_count;
-	uint16_t sub_effect_group_count;
-	uint16_t resource_group_count;
-	uint16_t sub_resource_group_count;
+	uint32_t effect_group_count;
+	uint32_t sub_effect_group_count;
+	uint32_t resource_group_count;
+	uint32_t sub_resource_group_count;
 }game_state_t;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 extern game_state_t game_state;
